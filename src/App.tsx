@@ -26,7 +26,7 @@ const App = () => {
         </p>
       </div>
       <p className="read-the-docs">
-        попатка не пытка
+        попатка не попытка
       </p>
     </>
   )
