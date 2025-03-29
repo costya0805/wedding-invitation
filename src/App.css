@@ -4,8 +4,101 @@
   min-height: 100vh;
   display: flex;
 
-  align-items: center;
   justify-content: center;
 
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html::-webkit-scrollbar { width: 0; }
+
+.envelope {
+  align-self: center;
+  height: 572px;
+  position: relative;
+  transition: box-shadow 0.3s;
+  box-shadow: -10px 10px 20.8px 3px rgba(0, 0, 0, 0.65);
+  cursor: pointer;
+}
+
+.envelope:hover {
+  box-shadow: 0px 0px 111.5px 42px rgb(255, 255, 255);
+  transition: box-shadow 0.3s;
+}
+
+.envelopeImg {
+  width: 800px;
+  height: 572px;
+}
+
+.stamp {
+  width: 153px;
+  height: 143px;
+  position: absolute;
+  left: calc(50% - 153px/2);
+  top: calc(50% - 143px/2);
+  filter: drop-shadow(-6px 6px 13.3px rgba(0, 0, 0, 0.25));
+}
+
+.stmapHidden {
+  left: 2000px;
+  top: 1000px;
+  opacity: 0;
+  transition: left 2s, top 2s, opacity 0.5s ease-out;
+}
+
+@font-face {
+  font-family: 'IceKingdomFrozenCyrillic';
+  src: url('./assets/Fonts/icekingdomfrozencyrillic_bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RingBear';
+  src: url('./assets/Fonts/ringbearmedium.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@media screen and (max-width: 1020px) {
+  .envelope {
+    height: 340px;
+  }
+
+  .envelopeImg {
+    width: 475px;
+    height: 340px;
+  }
+
+  .stamp {
+    width: 103px;
+    height: 96px;
+    position: absolute;
+    left: calc(50% - 103px/2);
+    top: calc(50% - 96px/2);
+  }
+
+}
+
+@media screen and (max-width: 560px) {
+  .envelope {
+    height: 214px;
+  }
+
+  .envelopeImg {
+    width: 316px;
+    height: 214px;
+  }
+
+  .stamp {
+    width: 71px;
+    height: 66px;
+    position: absolute;
+    left: calc(50% - 71px/2);
+    top: calc(50% - 66px/2);
+  }
+
 }
