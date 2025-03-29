@@ -1,0 +1,107 @@
+.letter {
+    display: flex;
+    background-color: #D3C5BA;
+    padding: 40px 80px;
+    box-shadow: -10px 10px 20.8px 4px #00000078, 0px 0px 250px 138px #6A5F596E inset;
+    width: 800px;
+    margin-top: 60px;
+    margin-bottom: 120px;
+    color: #343434;
+    font-family: "RingBear";
+    flex-direction: column;
+    gap: 40px;
+    box-sizing: border-box;
+    height: fit-content;
+    font-size: 24px;
+    line-height: 30px;
+    position: relative;
+}
+
+.letter div{
+    z-index: 2;
+}
+
+.texture{
+    position: absolute;
+    background-image: url(../../assets/images/letterBackground.png);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: soft-light;
+    z-index: 1 !important;
+}
+
+.headerPattern {
+    align-self: center;
+    width: 100%;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.namesText,
+.dressCode,
+.signature {
+    font-family: "IceKingdomFrozenCyrillic";
+    font-weight: bold;
+}
+
+.headerText,
+.namesText {
+    align-self: center;
+    text-align: center;
+}
+
+.headerText {
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 100%;
+    letter-spacing: 4%;
+}
+
+.mainText{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.drago{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    text-align: end;
+}
+
+.textContent{
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.dressCode .title{
+    text-align: center;
+}
+.dressCode{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.signature{
+    text-align: end;
+}
+
+.bottomBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.bottles{
+    display: flex;
+    justify-content: space-between;
+}
