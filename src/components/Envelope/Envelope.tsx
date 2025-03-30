@@ -1,10 +1,12 @@
-import {useEffect, useState} from 'react';
-import './Envelope.css';
-import envelope from '../../assets/images/envelope.png';
-import envelopeOpen from '../../assets/images/envelopeOpen.png';
-import stamp from '../../assets/images/stamp.png';
+import { useEffect, useState } from "react";
+import envelope from "../../assets/images/envelope.png";
+import envelopeOpen from "../../assets/images/envelopeOpen.png";
+import stamp from "../../assets/images/stamp.png";
 
-export const Envelope = () => {
+import styles from "./Envelope.module.css";
+import cn from "classnames";
+
+const Envelope = ({ openLetter }: { openLetter: () => void }) => {
     const [isEnvelopeOpen, setIsEnvelopeOpen] = useState<boolean>(false);
     const [isChangeEnvelope, setIsChangeEnvelope] = useState<boolean>(false);
     const [isEnvelopeRotating, setIsEnvelopeRotating] = useState<boolean>(false);
@@ -16,6 +18,9 @@ export const Envelope = () => {
             }, 1000); // ждём 1 секунду для эффекта исчезновения
             const timer2 = setTimeout(() => {
                 setIsEnvelopeRotating(true);
+                setTimeout(() => {
+                    openLetter();
+                }, 2000);
             }, 2000);
             return () => {
                 clearTimeout(timer);
@@ -24,20 +29,34 @@ export const Envelope = () => {
         }
     }, [isEnvelopeOpen]);
 
+    const handleClick = () => {
+        setIsEnvelopeOpen(true);
+    };
+
     return (
-        <div onClick={() => setIsEnvelopeOpen(true)}
-             className={`envelope ${isChangeEnvelope ? '' : 'envelopeNotOpen'}`}>
-            <img
-                src={envelope}
-                className={`envelopeImg ${isChangeEnvelope ? 'opacityZero' : 'fadeOut'}`}
-                alt={'envelope'}
-            />
-            <img
-                src={envelopeOpen}
-                className={`envelopeImgOpen ${isChangeEnvelope ? 'fadeIn' : 'opacityZero'} ${isEnvelopeRotating ? 'envelopeRotating' : ''}`}
-                alt={'envelope'}
-            />
-            <img src={stamp} className={`stamp ${isEnvelopeOpen ? 'stmapHidden' : ''}`} alt={'stamp'}/>
-        </div>
+        <>
+            <div className={styles.background}></div>
+            <div onClick={handleClick} className={cn(styles.envelope, !isChangeEnvelope && styles.envelopeNotOpen)}>
+                <img
+                    src={envelope}
+                    className={cn(styles.envelopeImg, isChangeEnvelope ? styles.opacityZero : styles.fadeOut)}
+                    alt={"envelope"}
+                />
+                <img
+                    src={envelopeOpen}
+                    className={cn(
+                        styles.envelopeImgOpen,
+                        isChangeEnvelope ? styles.fadeIn : styles.opacityZero,
+                        isEnvelopeRotating && styles.envelopeRotating
+                    )}
+                    alt={"envelope"}
+                />
+                {!isChangeEnvelope && (
+                    <img src={stamp} className={cn(styles.stamp, isEnvelopeOpen && styles.stmapHidden)} alt={"stamp"} />
+                )}
+            </div>
+        </>
     );
-}
+};
+
+export default Envelope;
