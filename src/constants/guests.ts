@@ -23,4 +23,5 @@ export const GUESTS: { [key in string]: string } = {
     ivashkin: "Дорогой Роман Ивашкин",
     natalyaiura: "Дорогие Наталья Дигтяренко и Юрий Нелаев",
     kochergini: "Дорогие Анатолий, Нина и Дмитрий Кочергины",
+    syroi: "Дорогой Роман Сыропятов",
 };
