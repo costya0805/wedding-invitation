@@ -11,6 +11,8 @@ import purpleBottle from "../../assets/images/bottles/BottlePurple.png";
 import yellowBottle from "../../assets/images/bottles/BottleYellow.png";
 import { createRef, useEffect, useState } from "react";
 import { GUESTS } from "../../constants/guests";
+import cn from 'classnames'
+import Hrefs from "../../constants/hrefs.ts";
 
 const Letter = () => {
     const [isShowFire, setIsShowFire] = useState<boolean>(false);
@@ -113,13 +115,28 @@ const Letter = () => {
     const bottomBlock = () => (
         <div className={styles.bottomBlock}>
             <div className={styles.dressCode}>
-                <div className={styles.title}>Дресс-код:</div>
+                <div className={cn(styles.title, styles.big)}>Дресс-код:</div>
+                <div className={cn(styles.title, styles.big)} style={{display:'flex', justifyContent:'center'}}>
+                    <a href={Hrefs.ref} target="_blank">референсы в пинтерест</a>
+                </div>
                 <div className={styles.bottles}>
                     <img className={styles.yellow} src={yellowBottle} />
                     <img className={styles.green} src={greenBottle} />
                     <img className={styles.blue} src={blueBottle} />
                     <img className={styles.purple} src={purpleBottle} />
                     <img className={styles.pink} src={pinkBottle} />
+                </div>
+            </div>
+            <div className={styles.dressCode}>
+                {/* <div className={cn(styles.title, styles.big)}>Пожелания по напиткам:</div> */}
+                <div className={cn(styles.title, styles.big)} style={{display:'flex', justifyContent:'center'}}>
+                    <a href={Hrefs.form} target="_blank">Пожелания по напиткам</a>
+                </div>
+            </div>
+            <div className={styles.dressCode}>
+                {/* <div className={cn(styles.title, styles.big)}>Вишлист:</div> */}
+                <div className={cn(styles.title, styles.big)} style={{display:'flex', justifyContent:'center'}}>
+                    <a href={Hrefs.presentDesk} target="_blank">Доска желаний</a>
                 </div>
             </div>
             <div className={styles.postScriptum}>
